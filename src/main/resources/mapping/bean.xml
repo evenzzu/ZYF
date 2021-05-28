@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <bean id="prop" class="com.wm103.ioc.PropertyDemo">
+            <!-- 注入数组 -->
+            <property name="arrs">
+                <list>
+                    <value>Value 1 of Array</value>
+                    <value>Value 2 of Array</value>
+                    <value>Value 3 of Array</value>
+                </list>
+            </property>
+            <!-- 注入List集合 -->
+            <property name="list">
+                <list>
+                    <value>Value 1 of List</value>
+                    <value>Value 2 of List</value>
+                    <value>Value 3 of List</value>
+                </list>
+            </property>
+            <!-- 注入Map集合 -->
+            <property name="map">
+                <map>
+                    <entry key="key1" value="Value 1 of Map"></entry>
+                    <entry key="key2" value="Value 2 of Map"></entry>
+                    <entry key="key3" value="Value 3 of Map"></entry>
+                </map>
+            </property>
+            <!-- 注入Properties -->
+            <property name="properties">
+                <props>
+                    <prop key="username">root</prop>
+                    <prop key="password">123456</prop>
+                </props>
+            </property>
+        </bean>
+</beans>

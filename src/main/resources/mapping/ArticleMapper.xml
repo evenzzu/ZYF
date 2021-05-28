@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.zyf.mapper.ArticleMapper">
+    <resultMap id="ArticleMap" type="com.example.zyf.model.Article">
+        <!--column是数据库中的字段，property是实体类中的变量名-->
+        <result column="C_BH" property="bh"></result>
+        <result column="C_BT" property="bt"></result>
+        <result column="C_BQ" property="bq"></result>
+        <result column="C_NR" property="nr"></result>
+        <result column="C_ZZ" property="zz"></result>
+        <result column="DT_FBSJ" property="fbsj"></result>
+    </resultMap>
+    <select id="selectArticle" resultMap="ArticleMap" parameterType="com.example.zyf.DTO.ArticleDTO">
+        select * from t_article
+        <where>
+            1 = 1
+            <if test="bq != null and bq != ''">
+                and C_BQ = #{bq}
+            </if>
+            <if test="bt != null and bt != ''">
+                and C_BT = #{bt}
+            </if>
+            <if test="zz != null and zz != ''">
+                and C_ZZ = #{zz}
+            </if>
+            <if test="ksrq != null and jsrq != null">
+                and DT_FBSJ BETWEEN #{ksrq} AND #{jsrq}
+            </if>
+            order by DT_FBSJ
+        </where>
+    </select>
+    <insert id="insertArticle" parameterType="com.example.zyf.model.Article">
+        insert into t_article (C_BH, C_BT, C_BQ, C_NR, C_ZZ, DT_FBSJ) values (#{bh}, #{bt}, #{bq}, #{nr}, #{zz}, #{fbsj})
+    </insert>
+    <update id="updateArticle" parameterType="com.example.zyf.DTO.ArticleDTO" >
+        update t_article
+        <set>
+            <if test="bt != null and bt != '' " >
+                C_BT = #{bt}
+            </if>
+            <if test="bq != null and bq != '' " >
+                C_BQ = #{bq}
+            </if>
+            <if test="nr != null and nr != '' " >
+                C_NR = #{nr}
+            </if>
+            <if test="zz != null and zz != '' " >
+                C_ZZ = #{zz}
+            </if>
+            <if test="fbsj != null and fbsj != '' " >
+                DT_FBSJ = #{fbsj}
+            </if>
+        </set>
+        where C_BH = #{bh}
+    </update>
+
+    <delete id="deleteArticle" parameterType="java.lang.String">
+        delete from t_article where C_BH = #{bh}
+    </delete>
+</mapper>

@@ -1,0 +1,82 @@
+server:
+  port: 8089
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+  mvc:
+    static-path-pattern: /static/**
+    hiddenmethod:
+      filter:
+        enabled: true
+  #  resources:
+#    add-mappings: false
+  redis:
+    host: localhost
+    port: 6379
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+      timeout: 30000
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: zyf
+    password: 123456
+    virtual-host: /
+    routingkey: routing
+    receive-queue: zyf
+
+#  mail:
+#    username: 123456@qq.com
+#    password: 123123
+#    host: smtp.qq.com
+#    properties:
+#      mail:
+#        smtp:
+#          ssl:
+#            enable: true
+
+
+  elasticsearch:
+    cluster-name: my-application
+    cluster-nodes: 172.16.17.44:9300
+  banner:
+    image:
+      location: banner.txt
+mybatis:
+  type-aliases-package: com.example.zyf.model
+  mapper-locations: classpath:mapping/*Mapper.xml
+#debug: true
+user:
+  username: zyf
+  id: 111
+  password: 123456
+  list:
+    - 123
+    - 222
+    - 333
+  tests:
+    - id: 1
+      name: testname1
+    - id: 2
+      name: testname2
+  map:
+    s1:
+      id: 1
+      name: 1
+    s2:
+      id: 2
+      name: 2
+sj: '0-4 * * * * MON-SAT'
+
+hbtc:
+  host: "api.hbtc.co"
+  path: "/openapi/quote/v1/ticker/price"
+kraken:
+  host: "api.kraken.com"
+  path: "/0/public/Ticker"
