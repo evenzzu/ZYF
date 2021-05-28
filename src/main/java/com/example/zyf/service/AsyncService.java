@@ -8,6 +8,7 @@ package com.example.zyf.service;
 
 import com.alibaba.fastjson.support.odps.udf.CodecCheck;
 import com.example.zyf.model.User;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.BeanUtils;
 import org.springframework.mail.SimpleMailMessage;
@@ -29,6 +30,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,6 +42,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @version 1.0
  */
 @Service
+@Slf4j
 public class AsyncService {
     //  @Autowired
     JavaMailSenderImpl javaMailSender;

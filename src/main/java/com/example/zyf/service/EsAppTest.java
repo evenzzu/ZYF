@@ -1,4 +1,4 @@
-package com.example.zyf;
+package com.example.zyf.service;
 
 import com.alibaba.fastjson.JSON;
 import com.example.zyf.model.Tests;
