@@ -20,7 +20,7 @@ import java.util.Set;
  * @date 2021/5/25 16:46
  * @version 1.0
  */
-public class Map1 {
+public class MapIterator {
     public static void main(String[] args) {
         Map<String,String> map = new HashMap<>();
         map.put("1","a");

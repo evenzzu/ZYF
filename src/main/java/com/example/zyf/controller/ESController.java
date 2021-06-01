@@ -1,7 +1,7 @@
 package com.example.zyf.controller;
 
-import com.example.zyf.EsAppTest;
 import com.example.zyf.service.AsyncService;
+import com.example.zyf.service.EsAppTest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
