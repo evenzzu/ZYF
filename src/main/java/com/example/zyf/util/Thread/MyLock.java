@@ -13,6 +13,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -90,15 +93,20 @@ public class MyLock {
 //            myLock.produce();
 //        }
 
-        new Thread(){
+        new Thread() {
             @Override
-            public void run(){
-                myLock.insert(Thread.currentThread());
+            public void run() {
+                Thread.currentThread().interrupted();
+                try {
+//                    myLock.insert(Thread.currentThread());
+                } catch (Exception e) {
+                    System.out.println("中断");
+                }
             }
         }.start();
-        new Thread(){
-            public void run(){
-                myLock.insert(Thread.currentThread());
+        new Thread() {
+            public void run() {
+//                myLock.insert(Thread.currentThread());
             }
         }.start();
         new Runnable() {
@@ -109,24 +117,25 @@ public class MyLock {
             }
         }.run();
     }
-    public void insert(Thread thread){
+
+    public void insert(Thread thread) {
         try {
             lock.lockInterruptibly();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if(lock.tryLock()){
-            try{
-                Thread.sleep(22);
-                System.out.println(thread.getName()+"得到锁");
-            }catch (Exception e){
+        if (lock.tryLock()) {
+            try {
+                Thread.sleep(2222);
+                System.out.println(thread.getName() + "得到锁");
+            } catch (Exception e) {
                 e.printStackTrace();
-            }finally {
-                System.out.println(thread.getName()+"释放了锁");
+            } finally {
+                System.out.println(thread.getName() + "释放了锁");
                 lock.unlock();
             }
-        }else {
-            System.out.println(thread.getName()+"获取锁失败");
+        } else {
+            System.out.println(thread.getName() + "获取锁失败");
         }
     }
 }

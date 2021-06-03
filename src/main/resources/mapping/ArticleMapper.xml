@@ -30,7 +30,7 @@
         </where>
     </select>
     <insert id="insertArticle" parameterType="com.example.zyf.model.Article">
-        insert into t_article (C_BH, C_BT, C_BQ, C_NR, C_ZZ, DT_FBSJ) values (#{bh}, #{bt}, #{bq}, #{nr}, #{zz}, #{fbsj})
+        insert into t_article (C_BH, C_BT, C_BQ, C_NR, C_MS, C_ZZ, DT_FBSJ) values (#{bh}, #{bt}, #{bq}, #{nr}, #{ms}, #{zz}, #{fbsj})
     </insert>
     <update id="updateArticle" parameterType="com.example.zyf.DTO.ArticleDTO" >
         update t_article
@@ -43,6 +43,9 @@
             </if>
             <if test="nr != null and nr != '' " >
                 C_NR = #{nr}
+            </if>
+            <if test="ms != null and ms != '' " >
+                C_MS = #{ms}
             </if>
             <if test="zz != null and zz != '' " >
                 C_ZZ = #{zz}

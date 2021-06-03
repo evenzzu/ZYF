@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  *
@@ -24,9 +25,7 @@ import java.util.Date;
  */
 @Data
 @Component
-public class Article {
-    @ApiModelProperty(value = "编号")
-    private String bh;
+public class Article extends BaseEntity{
 
     @ApiModelProperty(value = "文章标题")
     private String bt;
@@ -36,6 +35,9 @@ public class Article {
 
     @ApiModelProperty(value = "文章内容")
     private String nr;
+
+    @ApiModelProperty(value = "文章描述")
+    private String ms;
 
     @ApiModelProperty(value = "文章作者")
     private String zz;

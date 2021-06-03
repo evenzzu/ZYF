@@ -6,6 +6,7 @@
  */
 package com.example.zyf.util.Thread;
 
+import javax.annotation.Resource;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -41,7 +42,7 @@ public class MyThreadPool {
             });
             Thread.sleep(1);
         }
-
+        executorService.execute(new RunableThread());
         for (int i = 0; i < 100; i++) {
             int temp = i;
             scheduledExecutorService.schedule(new Runnable() {
@@ -51,6 +52,15 @@ public class MyThreadPool {
                 }
             }, 1, TimeUnit.SECONDS);
         }
+        executorService.execute(new Thread1());
 
+    }
+
+    static class Thread1 implements Runnable{
+
+        @Override
+        public void run() {
+
+        }
     }
 }

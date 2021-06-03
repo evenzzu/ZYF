@@ -43,11 +43,12 @@ public class ArticleController {
     }
     @PostMapping(value = "/Article")
     private int insertArticle(Article article) {
-        article.setBh(UUID.randomUUID().toString().replaceAll("-", "").substring(0,31));
-        article.setBq("军事");
-        article.setBt("叙利亚战争");
-        article.setNr("美国入侵西利亚");
-        article.setZz("白岩松");
+//        article.setBh(UUID.randomUUID().toString().replaceAll("-", "").substring(0,31));
+//        article.setBq("军事");
+//        article.setBt("叙利亚战争");
+//        article.setNr("美国入侵西利亚");
+//        article.setZz("白岩松");
+//        article.setMs("战争持续，白热化");
         article.setFbsj(LocalDateTime.now());
         return articleService.insertArticle(article);
     }
