@@ -43,15 +43,15 @@ public class User implements Serializable {
     private String id ;
     private String username;
     private String password;
-    private List<String> list;
-    private List<Tests> tests;
-    private Map<String,Tests> map;
-    @DurationUnit(ChronoUnit.CENTURIES)
-    private Duration sessionTime = Duration.ofSeconds(20);
-    private Duration readTimeout = Duration.ofMillis(1000);
-    @DataSizeUnit(DataUnit.MEGABYTES)
-    private DataSize msize = DataSize.ofMegabytes(2);
-    private DataSize bsize = DataSize.ofBytes(200);
+//    private List<String> list;
+//    private List<Tests> tests;
+//    private Map<String,Tests> map;
+//    @DurationUnit(ChronoUnit.CENTURIES)
+//    private Duration sessionTime = Duration.ofSeconds(20);
+//    private Duration readTimeout = Duration.ofMillis(1000);
+//    @DataSizeUnit(DataUnit.MEGABYTES)
+//    private DataSize msize = DataSize.ofMegabytes(2);
+//    private DataSize bsize = DataSize.ofBytes(200);
 
 
 
